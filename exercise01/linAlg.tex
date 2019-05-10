@@ -19,7 +19,160 @@ Is matrix multiplication distributive with respect to matrix addition?
 Again, prove it analytically or give a counterexample.
 Considering three matrices $ A, B, C$ of size $n\times n$.
 
-\begin{answer}\end{answer}
+\begin{answer}
+	Let us first inspect the matrix addition.
+	\begin{itemize}
+		\item[(Commutativity)]
+		For two matrices $A = (a_{i, j})$ and $B = (b_{i, j})$ with $i, j \in \{1, \dots n\}$ it holds
+		\begin{align*}
+A + B &= \begin{pmatrix}
+a_{1, 1} & a_{1, 2} & \cdots & a_{1, n}\\
+a_{2, 1} & a_{2, 2} & \cdots & a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} & a_{n, 2} & \cdots & a_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+b_{1, 1} & b_{1, 2} & \cdots & b_{1, n}\\
+b_{2, 1} & b_{2, 2} & \cdots & b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} & b_{n, 2} & \cdots & b_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1, 1} + b_{1, 1} & a_{1, 2} + b_{1, 2} & \cdots & a_{1, n} + b_{1, n}\\
+a_{2, 1} + b_{2, 1} & a_{2, 2} + b_{2, 2} & \cdots & a_{2, n} + b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} + b_{n, 1} & a_{n, 2} + b_{n, 2} & \cdots & a_{n, n} + b_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+b_{1, 1} + a_{1, 1} & b_{1, 2} + a_{1, 2} & \cdots & b_{1, n} + a_{1, n}\\
+b_{2, 1} + a_{2, 1} & b_{2, 2} + a_{2, 2} & \cdots & b_{2, n} + a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} + a_{n, 1} & b_{n, 2} + a_{n, 2} & \cdots & b_{n, n} + a_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+b_{1, 1} & b_{1, 2} & \cdots & b_{1, n}\\
+b_{2, 1} & b_{2, 2} & \cdots & b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} & b_{n, 2} & \cdots & b_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+a_{1, 1} & a_{1, 2} & \cdots & a_{1, n}\\
+a_{2, 1} & a_{2, 2} & \cdots & a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} & a_{n, 2} & \cdots & a_{n, n}
+\end{pmatrix} = B + A
+		\end{align*}
+	
+		\item[(Associativity)]
+		Consider three matrices $A = (a_{i, j})$, $B = (b_{i, j})$ and $C = (c_{i, j})$ with $i, j \in \{1, \dots n\}$. Then it holds
+		\begin{align*}
+\hspace{0cm}(A + B) + C &= (\begin{pmatrix}
+a_{1, 1} & a_{1, 2} & \cdots & a_{1, n}\\
+a_{2, 1} & a_{2, 2} & \cdots & a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} & a_{n, 2} & \cdots & a_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+b_{1, 1} & b_{1, 2} & \cdots & b_{1, n}\\
+b_{2, 1} & b_{2, 2} & \cdots & b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} & b_{n, 2} & \cdots & b_{n, n}
+\end{pmatrix}) + \begin{pmatrix}
+c_{1, 1} & c_{1, 2} & \cdots & c_{1, n}\\
+c_{2, 1} & c_{2, 2} & \cdots & c_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+c_{n, 1} & c_{n, 2} & \cdots & c_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1, 1} + b_{1, 1} & a_{1, 2} + b_{1, 2} & \cdots & a_{1, n} + b_{1, n}\\
+a_{2, 1} + b_{2, 1} & a_{2, 2} + b_{2, 2} & \cdots & a_{2, n} + b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} + b_{n, 1} & a_{n, 2} + b_{n, 2} & \cdots & a_{n, n} + b_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+c_{1, 1} & c_{1, 2} & \cdots & c_{1, n}\\
+c_{2, 1} & c_{2, 2} & \cdots & c_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+c_{n, 1} & c_{n, 2} & \cdots & c_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\hspace{0cm}(a_{1, 1} + b_{1, 1}) + c_{1, 1} & \hspace{0cm}(a_{1, 2} + b_{1, 2}) + c_{1, 2} & \cdots & \hspace{0cm}(a_{1, n} + b_{1, n}) + c_{1, n}\\
+\hspace{0cm}(a_{2, 1} + b_{2, 1}) + c_{2, 1} & \hspace{0cm}(a_{2, 2} + b_{2, 2}) + c_{2, 2} & \cdots & \hspace{0cm}(a_{2, n} + b_{2, n}) + c_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+\hspace{0cm}(a_{n, 1} + b_{n, 1}) + c_{n, 1} & \hspace{0cm}(a_{n, 2} + b_{n, 2}) + c_{n, 2} & \cdots & \hspace{0cm}(a_{n, n} + b_{n, n}) + c_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1, 1} + (b_{1, 1} + c_{1, 1}) & a_{1, 2} + (b_{1, 2} + c_{1, 2}) & \cdots & a_{1, n} + (b_{1, n} + c_{1, n})\\
+a_{2, 1} + (b_{2, 1} + c_{2, 1}) & a_{2, 2} + (b_{2, 2} + c_{2, 2}) & \cdots & a_{2, n} + (b_{2, n} + c_{2, n})\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} + (b_{n, 1} + c_{n, 1}) & a_{n, 2} + (b_{n, 2} + c_{n, 2}) & \cdots & a_{n, n} + (b_{n, n} + c_{n, n})
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1, 1} & a_{1, 2} & \cdots & a_{1, n}\\
+a_{2, 1} & a_{2, 2} & \cdots & a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} & a_{n, 2} & \cdots & a_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+b_{1, 1} + c_{1, 1} & b_{1, 2} + c_{1, 2} & \cdots & b_{1, n} + c_{1, n}\\
+b_{2, 1} + c_{2, 1} & b_{2, 2} + c_{2, 2} & \cdots & b_{2, n} + c_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} + c_{n, 1} & b_{n, 2} + c_{n, 2} & \cdots & b_{n, n} + c_{n, n}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+a_{1, 1} & a_{1, 2} & \cdots & a_{1, n}\\
+a_{2, 1} & a_{2, 2} & \cdots & a_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n, 1} & a_{n, 2} & \cdots & a_{n, n}
+\end{pmatrix} + (\begin{pmatrix}
+b_{1, 1} & b_{1, 2} & \cdots & b_{1, n}\\
+b_{2, 1} & b_{2, 2} & \cdots & b_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+b_{n, 1} & b_{n, 2} & \cdots & b_{n, n}
+\end{pmatrix} + \begin{pmatrix}
+c_{1, 1} & c_{1, 2} & \cdots & c_{1, n}\\
+c_{2, 1} & c_{2, 2} & \cdots & c_{2, n}\\
+\vdots & \vdots & \ddots & \vdots\\
+c_{n, 1} & c_{n, 2} & \cdots & c_{n, n}
+\end{pmatrix}) = A + (B + C)
+		\end{align*}	
+	\end{itemize}
+	
+	Now let us inspect the matrix multiplication. Consider two $2 \times 2$ matrices. Then it holds
+	\begin{align*}
+\begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & 2\\
+1 & 1
+\end{pmatrix} \neq \begin{pmatrix}
+0 & 1\\
+1 & 2
+\end{pmatrix} = \begin{pmatrix}
+0 & 1\\
+1 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 1\\
+0 & 1
+\end{pmatrix}
+	\end{align*}
+	Hence the matrix multiplication is not commutative.\\
+	For the associativity consider three matrices $A = (a_{i, j})$, $B = (b_{i, j})$ and $C = (c_{i, j})$ with $i, j \in \{1, \dots n\}$. Let $D = (d_{i, j})$ be the result of $AB$. Then the value of $d_{i, j}$ is
+	\begin{align*}
+d_{i, j} = \sum_{k = 1}^n a_{i, k}b_{k, j}
+	\end{align*}
+	Now let $E = (e_{i, j})$ be the result of $(AB)C = DC$. Then the value of $e_{i, j}$ is
+	\begin{align*}
+e_{i, j} = \sum_{l = 1}^n d_{i, l}c_{l, j} = \sum_{l = 1}^n (\sum_{k = 1}^n a_{i, k}b_{k, l})c_{l, j}
+	\end{align*}
+	We can now use the distributivity and the associativity of the underlying ring $(R, +, \cdot)$ of which the elements of the matrices come from, i.e. $A, B, C \in R^{n \times n} \Rightarrow a_{i, j}, b_{i, j}, c_{i, j} \in R$.
+	\begin{multline*}
+e_{i, j} = \sum_{l = 1}^n (\sum_{k = 1}^n a_{i, k}b_{k, l})c_{l, j} = \sum_{l = 1}^n \sum_{k = 1}^n (a_{i, k}b_{k, l})c_{l, j} = \sum_{l = 1}^n \sum_{k = 1}^n a_{i, k}(b_{k, l}c_{l, j})\\
+= \sum_{l = 1}^n \sum_{k = 1}^n a_{i, k}(b_{k, l}c_{l, j}) = \underbrace{\sum_{k = 1}^n \sum_{l = 1}^n}_{\text{Note indices}} a_{i, k}(b_{k, l}c_{l, j}) = \sum_{k = 1}^n  a_{i, k} (\sum_{l = 1}^n b_{k, l}c_{l, j})
+	\end{multline*}
+	Now we can see that $\sum_{l = 1}^n b_{k, l}c_{l, j}$ is the value of row $k$ and column $j$ with $k, j \in \{1, \dots, n\}$ of the matrix resulting from $BC$. Hence we can conclude that $(AB)C = A(BC)$.
+
+
+\end{answer}
 
 \end{question}
 
